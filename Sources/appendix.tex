@@ -1,0 +1,53 @@
+\section*{APPENDIX \\ Proof of the Security of the CloudID}\label{sec-appendix}
+
+We review the proof of the security of CloudID's searchable encryption scheme presented in \cite{haghighat2015cloudid}. Let's define a security game in which an adversary is given a number of tokens and is required to distinguish two encrypted messages.
+The $i^{th}$ experiment in the game proceeds as follows:
+
+\begin{itemize}
+
+\item \textbf{Setup} - The challenger generates the public and secret keys and $PK$ is passed to the adversary. \\
+$
+  PK \leftarrow (PK_1, PK_2, \cdots, PK_t)\\
+  SK \leftarrow (SK_1, SK_2, \cdots, SK_t)
+$
+
+\item \textbf{Query Phase I} - The adversary adaptively requests for the tokens of the predicates $P_1, P_2, \cdots,P_{q'} \in \Phi$, and the challenger responds with the corresponding tokens\\
+$TK_j \leftarrow GenToken(SK,P_j)$.
+
+\item \textbf{Challenge} - The adversary chooses two data-biometric pairs $(M_0,B_0)$ and $(M_1,B_1)$ subject to the following restrictions:
+\begin{itemize}
+ \item $P_j(B_0) = P_j(B_1)$ for all $j = 1, \cdots, q'$.
+ \item If $M_0 \neq M_1$, then $P_j(B_0) = P_j(B_1) = 0$ for all $j = 1, \cdots, q'$.
+\end{itemize}
+
+In $i^{th}$ experiment, the challenger constructs the following ciphertexts:
+
+$
+  C_j \leftarrow \left\{
+  \begin{array}{lll}
+    Encrypt(PK_j, M_0)		&\mbox{ if  $P_j(B_0) = 1$} &\mbox{ and $j \geq i$}\\
+    Encrypt(PK_j, M_1)		&\mbox{ if  $P_j(B_1) = 1$} &\mbox{ and $j < i$}\\
+    Encrypt(PK_j, \bot)		&\mbox{ o/w}, &
+  \end{array} \right.
+$
+
+and returns $C \leftarrow (C_1, C_2, \cdots, C_t)$.
+
+\item \textbf{Query Phase II} - The adversary can request more tokens for predicates $P_{q'+1}, \cdots,P_q \in \Phi$ as long as they
+adhere to the above restrictions.
+
+\item \textbf{Guess} - The challenger flips a coin $\beta \in \{0,1\}$ and gives $C_* = Encrypt(PK_{B_{\beta}},M_{\beta})$ to the adversary, who returns a guess $\beta' \in \{0,1\}$ of $\beta$. The advantage of adversary in attacking the system is defined as
+
+$
+Adv = |Pr(\beta = \beta')-\frac{1}{2}|.
+$
+
+\end{itemize}
+
+If $Exp^i$ is the probability that the adversary guesses $\beta' = 1$ in experiment $i$, in a chain of $t+1$ experiments, the adversary's advantage can be calculated by the differences in the outer experiments
+
+$
+Adv = |Exp^1 - Exp^{t+1}| \leq \sum \limits_{i=1}^t|Exp^i - Exp^{i+1}| .
+$
+
+Since the public key system is semantically secure, $|Exp^i - Exp^{i+1}|$ and consequently adversary's advantage are negligible, which make the $\Phi$-searchable system secure.

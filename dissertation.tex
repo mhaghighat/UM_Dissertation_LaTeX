@@ -1,0 +1,103 @@
+\documentclass[12pt]{umdiss}
+
+\usepackage{afterpage, amsfonts, amsmath, amssymb, amsxtra, arydshln, boxedminipage, changepage, cite, comment, diagbox, epsfig, epstopdf, float, graphics, graphicx, lastpage, lscape, mathtools, mdwmath, multirow, pifont, psfig, subfigure, url}
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+
+\usepackage[font={footnotesize}]{caption}
+
+\widowpenalty10000
+\clubpenalty10000
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{result}{Result}
+\newtheorem{definition}{Definition}
+\newtheorem{remark}{Remark}
+\newtheorem{scenario}{Scenario}
+\newtheorem{condition}{Condition}
+\newtheorem{corollary}{Corollary}
+\newtheorem{claim}{Claim}
+\newtheorem{lemma}{Lemma}
+\newtheorem{example}{Example}
+\newtheorem{property}{Property}
+
+\leftchapter %\oneandhalfspace
+\doublespace
+\newcommand{\ml}{\multicolumn}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\ol}{\overline}
+\newcommand{\mc}{\mathcal}
+\newcommand{\mf}{\mathfrak}
+\newcommand{\mb}{\mathbf}
+\newcommand{\tx}{\text}
+\newcommand{\tb}{\textbf}
+\newcommand{\T}{\Theta}
+\newcommand{\MF}{_{MF}}
+\newcommand{\SF}{_{SF}}
+\newcommand{\bs}{\boldsymbol}
+\newcommand{\argmax}{\operatornamewithlimits{argmax}}
+
+\def\QEDopen{{\setlength{\fboxsep}{0pt}\setlength{\fboxrule}{0.2pt}\fbox{\rule[0pt]{0pt}{1.3ex}\rule[0pt]{1.3ex}{0pt}}}}
+\def\QED{\QEDclosed} % default to closed
+\def\endbox{\hspace*{\fill}~\QED\par\endtrivlist\unskip}
+\def\whitebox{\hspace{\fill}\QEDopen}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\renewcommand{\dissauthorFirst}{Mohammad}
+\renewcommand{\dissauthorLast}{Haghighat}
+\renewcommand{\dissmonth}{August}
+\renewcommand{\dissyear}{2016}
+\renewcommand{\disstitle}{Biometrics for Cybersecurity and Unconstrained Environments}
+\renewcommand{\dissabstitle}{Biometrics for Cybersecurity and Unconstrained Environments}
+\renewcommand{\dissauthoraddress}{Department of Electrical and Computer Engineering\\
+				    College of Engineering\\
+				    University of Miami}
+\renewcommand{\disssupervisor}{Mohamed Abdel-Mottaleb}
+\renewcommand{\disssupervisortitle}{Professor of Electrical and \\Computer Engineering}
+\renewcommand{\disscommitteeFirst}{Saman Zonouz}
+\renewcommand{\disscommitteeFirsttitle}{Assistant Professor of Electrical and Computer Engineering \\Rutgers University}
+\renewcommand{\disscommitteeSecond}{Shahriar Negahdaripour}
+\renewcommand{\disscommitteeSecondtitle}{Professor of Electrical and \\Computer Engineering}
+\renewcommand{\disscommitteeThird}{Jie Xu}
+\renewcommand{\disscommitteeThirdtitle}{Assistant Professor of Electrical and \\Computer Engineering}
+\renewcommand{\disscommitteeoutside}{Anil K. Jain}
+\renewcommand{\disscommitteeoutsidetitle}{Distinguished Professor of \\Computer Science and Engineering \\Michigan State University}
+\renewcommand{\dissdean}{Guillermo Prado}
+\renewcommand{\dissdeantitle}{Dean of the Graduate School}
+\renewcommand{\dissdedication}{to my whatever}
+
+
+\begin{document}
+\disstitlepage          % Cover page for dissertation
+\disscopyrightpage
+\disssignaturepage
+\input{./Sources/abstract}
+\doublespace
+\newpage
+\dissdedicationpage
+
+\doublespace	
+\input{./Sources/acknowledgement}
+\tableofcontents \listoffigures \listoftables
+
+\input{./Sources/introduction}
+\input{./Sources/chapter2}
+\input{./Sources/chapter3}
+%\input{./Sources/chapter4}
+%\input{./Sources/chapter5}
+\input{./Sources/conclusion}
+
+\newpage
+\appendix
+\addcontentsline{toc}{chapter}{APPENDIX} % or {APPENDICES}
+\input{./Sources/appendix}
+
+
+\baselineskip 0.2in
+%\bibliographystyle{amsalpha}
+\bibliographystyle{IEEEtran}
+\bibliography{./Sources/references}
+
+\end{document}
